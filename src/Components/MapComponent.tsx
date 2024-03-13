@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import "ol/ol.css";
 import Map from "ol/Map";
@@ -112,11 +112,15 @@ const MapComponent: React.FC = () => {
       coordinates.slice(1).forEach((coord, index) => {
         const prevCoord = coordinates[index];
         const lineLength = Math.sqrt(
-          Math.pow(coord[0] - prevCoord[0], 2) + Math.pow(coord[1] - prevCoord[1], 2)
+          Math.pow(coord[0] - prevCoord[0], 2) +
+            Math.pow(coord[1] - prevCoord[1], 2)
         );
         totalLength += lineLength;
 
-        const midpoint = [(coord[0] + prevCoord[0]) / 2, (coord[1] + prevCoord[1]) / 2];
+        const midpoint = [
+          (coord[0] + prevCoord[0]) / 2,
+          (coord[1] + prevCoord[1]) / 2,
+        ];
 
         const overlayElement = document.createElement("div");
         overlayElement.innerText = `${lineLength.toFixed(2)} m`;
@@ -177,25 +181,25 @@ const MapComponent: React.FC = () => {
           <button
             className="control__btn"
             style={{
-              background: mapMode === "draw" ? "#007bff" : "black",
+              background: mapMode === "draw" ? "#9195F6" : "#31363F",
             }}
             onClick={() => {
               setMapMode("draw");
             }}
           >
-            Draw Polygon
+            Draw 
           </button>
           <button
             className="control__btn"
             style={{
-              background: mapMode === "placeMarker" ? "#007bff" : "black",
+              background: mapMode === "placeMarker" ? "#9195F6" : "#31363F",
             }}
             onClick={() => {
               setMapMode("placeMarker");
               setPolygonArea(null);
             }}
           >
-            Place Marker
+            Pinpoint
           </button>
         </div>
       </div>
